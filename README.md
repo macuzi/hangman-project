@@ -1,6 +1,10 @@
 # Hangman Game
 
-A classic word guessing game implemented in JS.
+![image](https://files.readme.io/6eaec9e1dd38d623cb626bce2410cd7b2f3ca0486a323431816e59ac9005bb1a-Screenshot_2025-02-28_at_11.16.05_AM.png)
+
+## Deployed Project here → https://macuzi.github.io/hangman-project/
+
+A classic word guessing game implemented in HTML/JS/CANVAS API.
 
 ## Description
 
