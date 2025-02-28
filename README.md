@@ -11,8 +11,7 @@ Hangman is a word guessing game where players try to guess a hidden word letter 
 - Random word selection from a predefined dictionary
 - Visual representation of the hangman
 - Letter tracking (used and available letters)
-- Score tracking
-- Multiple difficulty levels
+- Lives tracking
 
 ## Installation
 
