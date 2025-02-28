@@ -57,8 +57,8 @@ const Game = ((_) => {
    This code shows an event listener function that handles click events on elements within a hangman game interface. Here's how it works:
 
     1. The function listens for click events on elements inside the $hangman element
-    2. When a click happens, it checks two conditions:
-    - If the clicked element has the class "hangman__letter", it plays a click sound and calls the check() function with the letter's text content
+    2. When a click happens, it checks two conditions:lays a click sound a
+    - If the clicked element has the class "hangman__letter", it pnd calls the check() function with the letter's text content
     - If the clicked element has the class "hangman__trigger", it plays a click sound and initializes the Home component
 
     The underscore parameter (_) indicates this function doesn't use any parameters passed to it.
@@ -120,12 +120,29 @@ const Game = ((_) => {
     }
   };
 
+  /*
+    This function is responsible for refreshing the game interface whenever the game state changes, such as when a player makes a guess.
+    The function takes a parameter (represented by `_` which means it's not being used) and updates three different elements on the page:
+
+    - Updates the `.hangman__lives` element to display the current number of lives remaining
+    - Updates the `.hangman__word` element to show the current state of the word being guessed (by joining the characters in the `guessingWord` array into a string)
+    - Updates the `.hangman__letters` element with letter buttons by calling a function named `createLetters()`
+  */
+
   const render = (_) => {
     document.querySelector(".hangman__lives").innerHTML = lives;
     document.querySelector(".hangman__word").innerHTML = guessingWord.join("");
     document.querySelector(".hangman__letters").innerHTML = createLetters();
   };
+  /* 
+function `updateGuessingWord` 
 
+1. The function takes a single parameter `letter`, which represents the letter the player has guessed.
+2. It uses `chosenWord.split("")` to convert the target word into an array of individual characters.
+3. The `.forEach()` method then loops through each letter of the target word along with its position (index).
+4. Inside this loop, it checks if the current letter in the chosen word (`elem`) matches the guessed letter.
+5. If there's a match, it updates the corresponding position in `guessingWord` array to show that letter.
+*/
   const updateGuessingWord = (letter) => {
     chosenWord.split("").forEach((elem, index) => {
       if (elem === letter) {
@@ -152,6 +169,16 @@ const Game = ((_) => {
     $hangman.innerHTML = markup;
   };
 
+  /*
+ `createLetters` function:
+  - Takes no parameters (uses _ as placeholder)
+  - Creates HTML markup for displaying letters in the game
+  - Uses a `forEach` loop to iterate through letters
+  - Checks if each letter is already used (`isAlreadyTaken`)
+  - Adds CSS class "hangman__letter--active" for used letters
+  - Returns a string of HTML list items containing the letters
+  */
+
   const createLetters = (_) => {
     let markup = ``;
     letters.forEach((letter) => {
@@ -163,6 +190,12 @@ const Game = ((_) => {
     return markup;
   };
 
+  /** 
+    `chooseWord` function:
+    - Takes no parameters (uses _ as placeholder)
+    - Randomly selects a word from an array called `words`
+    - Uses `Math.random()` to generate a random index
+  */
   const chooseWord = (_) => {
     let randNum = Math.floor(Math.random() * words.length);
     return words[randNum];
